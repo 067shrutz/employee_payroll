@@ -136,15 +136,51 @@ class Payroll
             cout << "Payroll data saved to payroll.csv successfully!" << endl;
         }
 };
-int main()
-{
+int main() {
     Payroll payroll;
-    payroll.addEmployee();
-    payroll.displayEmployee();
-    payroll.deleteEmployee();
-    payroll.updateEmployee();
-    payroll.generatePayroll();
-    payroll.saveToCSV();
+    int choice;
+
+    do {
+        // Display the menu
+        cout << "\n=== Payroll Management System ===\n";
+        cout << "1. Add Employee\n";
+        cout << "2. Display Employees\n";
+        cout << "3. Delete Employee\n";
+        cout << "4. Update Employee\n";
+        cout << "5. Generate Payroll\n";
+        cout << "6. Save to CSV\n";
+        cout << "0. Exit\n";
+        cout << "Enter your choice: ";
+        
+        cin >> choice;
+
+        // Execute based on user input
+        switch (choice) {
+            case 1:
+                payroll.addEmployee();
+                break;
+            case 2:
+                payroll.displayEmployee();
+                break;
+            case 3:
+                payroll.deleteEmployee();
+                break;
+            case 4:
+                payroll.updateEmployee();
+                break;
+            case 5:
+                payroll.generatePayroll();
+                break;
+            case 6:
+                payroll.saveToCSV();
+                break;
+            case 0:
+                cout << "Exiting program. Goodbye!\n";
+                break;
+            default:
+                cout << "Invalid choice! Please select a valid option (0-6).\n";
+        }
+    } while (choice != 0); // Loop continues until the user enters 0
 
     return 0;
 }
